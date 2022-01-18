@@ -1,5 +1,5 @@
 "use strict";
-let numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?');
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?','');
 document.writeln(`Вы посмотрели ${numberOfFilms} фильмов!`);
 let personalMovieDB = {
     count: numberOfFilms,
@@ -10,10 +10,10 @@ let personalMovieDB = {
 
 };
 for (let i = 0; i < 2; i++) {
-    let questionRes = prompt('Один из последних просмотренных фильмов?');
-    let rating = prompt('На сколько оцените его?');
+    const questionRes = prompt('Один из последних просмотренных фильмов?'),
+    rating = prompt('На сколько оцените его?');
     personalMovieDB['movies'][questionRes] = rating;
 
 }
-
-document.write(JSON.stringify(personalMovieDB));
+const label = document.getElementById('label1')
+label.innerHTML = JSON.stringify(personalMovieDB);
