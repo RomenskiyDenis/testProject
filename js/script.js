@@ -23,5 +23,12 @@ for (let i = 0; i < 2; i++) {
 
 
 }
-const label = document.getElementById('label1')
+if (personalMovieDB.count < 10) {
+    alert('Просмотрено довольно мал фильмов');
+} else if (personalMovieDB.count > 30) {
+    alert('Вы киноман');
+} else {
+    alert('Вы классический зритель');
+}
+const label = document.getElementById('label1');
 label.innerHTML = JSON.stringify(personalMovieDB);
