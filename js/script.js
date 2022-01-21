@@ -1,13 +1,5 @@
 "use strict";
 let numberOfFilms;
-let personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-
-};
 
 //function block
 function start() {
@@ -16,6 +8,7 @@ function start() {
         numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
     }
 }
+
 function rememberMyFilms(){
     for (let i = 0; i < 2; i++) {
         const questionRes = prompt('Один из последних просмотренных фильмов?'),
@@ -32,6 +25,7 @@ function rememberMyFilms(){
     
     }
 }
+
 function detectPersonalLevel(){
     if (personalMovieDB.count < 10) {
         alert('Просмотрено довольно мал фильмов');
@@ -41,11 +35,49 @@ function detectPersonalLevel(){
         alert('Вы классический зритель');
     }
 }
+
+function writeLog(value){
+    console.log(value);
+}
+
+function showMyDB(){
+    
+    if (!personalMovieDB.privat){
+        writeLog(personalMovieDB);
+    } else {
+        writeLog('Доступ закрыт!');
+    }
+}
+function writeYourGenres(){
+    for (let i = 1; i < 4; i++) {
+        const questionRes = prompt(`Ваш любимый жанр под номером ${i}`);
+        if (!questionRes || questionRes.length === 0) {
+            i--;
+            alert('Вы не корректно ответили на вопрос! Повторите, пожалуйста.');
+            continue;
+    
+        } else {
+            personalMovieDB.genres.push(questionRes);
+        }
+    
+    
+    }
+}
 //end function block
 
 start();
+let personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+
+};
 rememberMyFilms();
 detectPersonalLevel();
+showMyDB();
+writeYourGenres();
 
 const label = document.getElementById('label1');
 label.innerHTML = JSON.stringify(personalMovieDB);
