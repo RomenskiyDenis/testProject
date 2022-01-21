@@ -40,9 +40,9 @@ function writeLog(value){
     console.log(value);
 }
 
-function showMyDB(){
+function showMyDB(hidden){
     
-    if (!personalMovieDB.privat){
+    if (!hidden){
         writeLog(personalMovieDB);
     } else {
         writeLog('Доступ закрыт!');
@@ -76,7 +76,7 @@ let personalMovieDB = {
 };
 rememberMyFilms();
 detectPersonalLevel();
-showMyDB();
+showMyDB(personalMovieDB.privat);
 writeYourGenres();
 
 const label = document.getElementById('label1');
