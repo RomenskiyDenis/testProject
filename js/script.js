@@ -60,7 +60,7 @@ let personalMovieDB = {
     },
     writeYourGenres: function(){
         for (let i = 1; i < 4; i++) {
-            const questionRes = prompt(`Ваш любимый жанр под номером ${i}`);
+            const questionRes = prompt(`Ваш любимый жанр под номером ${i}`).toLowerCase();
             if (!questionRes || questionRes.length === 0) {
                 i--;
                 alert('Вы не корректно ответили на вопрос! Повторите, пожалуйста.');
@@ -72,6 +72,7 @@ let personalMovieDB = {
         
         
         }
+        this.genres.sort();
         this.genres.forEach((item,ind)=>{
             console.log(`Любимый жанр ${++ind} - это ${item}`);
         });
