@@ -64,7 +64,7 @@ let personalMovieDB = {
             if (!questionRes || questionRes.length === 0) {
                 i--;
                 alert('Вы не корректно ответили на вопрос! Повторите, пожалуйста.');
-                continue;
+                //continue;
         
             } else {
                 this.genres.push(questionRes);
@@ -72,8 +72,8 @@ let personalMovieDB = {
         
         
         }
-        this.genres.forEach(function(item,ind){
-            console.log(`Любимый жанр #${++ind} - это ${item}`);
+        this.genres.forEach((item,ind)=>{
+            console.log(`Любимый жанр ${++ind} - это ${item}`);
         });
     }
 
